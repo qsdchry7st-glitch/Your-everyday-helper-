@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Everyday Helper | St. Lucia 758</title>
+  <style>
+    :root {
+      --primary: #6b9080; 
+      --secondary: #4a7c59; 
+      --accent: #f6bd60; 
+      --light-bg: #fefcf8; 
+      --white: #ffffff;
+      --text: #333333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text);
+      line-height: 1.7;
+      scroll-behavior: smooth;
+    }
+
+    nav {
+      background: var(--white);
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+
+    header {
+      background: linear-gradient(rgba(107, 144, 128, 0.85), rgba(107, 144, 128, 0.85)), 
+                  url('https://images.unsplash.com/photo-1548574505-5e239809ee19?auto=format&fit=crop&q=80&w=1000');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+
+    section { padding: 40px 20px; max-width: 1100px; margin: auto; }
+
+    h2 { text-align: center; margin-bottom: 30px; color: var(--primary); }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover { transform: translateY(-5px); }
+
+    .card h3 { color: var(--secondary); margin-top: 0; }
+
+    .calculator {
+      background: var(--primary);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    select {
+      width: 100%;
+      max-width: 300px;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      margin: 20px 0;
+      font-size: 1rem;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #000;
+      padding: 15px 35px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Your Everyday Helper</div>
+</nav>
+
+<header>
+  <h1>Helping You Everyday 🌴</h1>
+  <p>Errands, Cleaning, Child Care & More in St. Lucia</p>
+</header>
+
+<section id="services">
+  <h2>Our Services</h2>
+  <div class="services">
+    <div class="card">
+      <h3>🏃‍♂️ Errands</h3>
+      <p>Bill payments, grocery shopping, and deliveries.</p>
+    </div>
+    <div class="card">
+      <h3>🧼 Cleaning</h3>
+      <p>Professional residential and office cleaning.</p>
+    </div>
+    <div class="card">
+      <h3>👶 Child Care</h3>
+      <p>Reliable and caring babysitting services.</p>
+    </div>
+    <div class="card" style="border: 2px dashed var(--accent);">
+      <h3>✨ And More...</h3>
+      <p>Pet sitting, waiting in lines, airport runs, and custom help.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="calculator">
+    <h2>Price Estimator</h2>
+    <p>Choose a service to see starting rates:</p>
+    <select id="serviceSelect" onchange="updatePrice()">
+      <option value="0">-- Select --</option>
+      <option value="40">Errands ($40+)</option>
+      <option value="80">Cleaning ($80+)</option>
+      <option value="50">Child Care ($50+)</option>
+      <option value="30">Other Tasks ($30+)</option>
+    </select>
+    <h1 id="priceDisplay">$0</h1>
+    <a href="https://www.instagram.com/qsdchry7st" class="btn">Book via Instagram</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2024 Your Everyday Helper - Saint Lucia
+</footer>
+
+<script>
+  function updatePrice() {
+    const val = document.getElementById('serviceSelect').value;
+    document.getElementById('priceDisplay').innerText = '$' + val;
+  }
+</script>
+
+</body>
+</html>
